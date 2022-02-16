@@ -1,0 +1,36 @@
+{% extends 'dashboard/layout.html' %}
+
+{% block body %}
+<h1>Register Here !</h1>
+
+
+{% if message %}
+<h2>{{message}}</h2>
+{% endif %}
+<form action="{% url 'register' %}" method="post">
+ {% csrf_token %}
+    Firstname : 
+    <input type="text" name="firstname" placeholder="Enter Firstname">
+    Lastname : 
+    <input type="text" name="lastname" placeholder="Enter Lastname">
+    Email : 
+    <input type="email" name="email" placeholder="Enter Email">
+    Password :
+    <input type="password" name= "password" placeholder="Enter Password">
+    Confirm Password :
+    <input type="password" name= "password" placeholder="Confirm Password">
+
+    <select name="course" id="course">
+
+        {% for course in courses%}
+        <option value={{course.courseAbbr}}>{{course}}</option>
+        {% endfor %}
+
+    </select>
+
+    <input type="submit" value="Register">
+
+</form>
+
+
+{% endblock %}

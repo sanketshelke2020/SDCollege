@@ -1,0 +1,18 @@
+{% extends 'dashboard/layout.html' %}
+
+{% block body %}
+
+{% if message %}
+<h1>{{message}}</h1>
+{% endif %}
+
+
+
+<form action="login" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" id="username">
+    <input type="password" name="password" id="password">
+    <input type="submit" value="Login">
+</form>
+
+{% endblock %}
